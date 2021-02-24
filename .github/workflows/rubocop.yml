@@ -1,0 +1,34 @@
+name: Code Climate
+
+on:
+  pull_request:
+    types: [ opened, synchronize ]
+    branches:
+      - 'staging'
+
+env:
+  FORCE_COLOR: 1
+
+jobs:
+  rubocop:
+    name: Codeclimate:Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.6.5
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6.5
+      - name: Install Rubocop Gems
+        run: |
+          gem install rubocop -v '0.92.0'
+          gem install rubocop-performance -v '1.8.1'
+          gem install rubocop-rails -v '2.8.1'
+          gem install rubocop-rspec -v '1.43.2'
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
+            echo "Do something with this ${changed_file}."
+          done
+ 
