@@ -3,5 +3,5 @@ class ApplicationController < ActionController::Base
     #dsdfsdfds
     #lll
 
-    # Yasto test
+    # Yasto sdfadasd
 end
