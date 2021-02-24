@@ -1,10 +1,8 @@
 name: Code Climate
 
-on:
-  pull_request:
-    types: [ opened, synchronize ]
-    branches:
-      - 'staging'
+push:
+  branches:
+    - master
 
 env:
   FORCE_COLOR: 1
