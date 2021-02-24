@@ -1,8 +1,9 @@
 name: Code Climate
 
-push:
-  branches:
-    - master
+on:
+  push:
+    branches:
+      - master
 
 env:
   FORCE_COLOR: 1
