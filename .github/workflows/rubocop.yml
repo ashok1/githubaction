@@ -18,22 +18,25 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6.5
+      - uses: actions/checkout@v2
+      - uses: technote-space/get-diff-action@v4
+      with:
+        PATTERNS: |
+          +(app|__tests__)/**/*.rb
+          !src/exclude.ts
+        FILES: |
+          yarn.lock
+          .eslintrc
       - name: Install Rubocop Gems
+        if: env.GIT_DIFF
         run: |
           gem install rubocop -v '0.92.0'
           gem install rubocop-performance -v '1.8.1'
           gem install rubocop-rails -v '2.8.1'
           gem install rubocop-rspec -v '1.43.2'
-      - id: files
-        uses: jitterbit/get-changed-files@v1
-      - run: |
-          for changed_file in ${{ steps.files.outputs.added_modified }}; do
-            echo "Do something with this ${changed_file}."
-            if endsWith("${changed_file}", "*.rb"); then
-              echo "RB file ${changed_file}."
-              rubocop ${changed_file}
-            else
-              echo "Non RB file ${changed_file}."
-            fi
-          done
+      - name: Check code style
+        # Check only if there are differences in the source code
+        run: rubocop
+        if: env.GIT_DIFF
+
  

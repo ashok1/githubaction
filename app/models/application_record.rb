@@ -3,4 +3,10 @@ class ApplicationRecord < ActiveRecord::Base
 
   # Testll
   # Another
+
+  # dfgdfgdf
+
+  def Testll
+    "RTYRTYrt"
+  end
 end
