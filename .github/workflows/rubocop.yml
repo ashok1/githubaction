@@ -29,7 +29,7 @@ jobs:
       - run: |
           for changed_file in ${{ steps.files.outputs.added_modified }}; do
             echo "Do something with this ${changed_file}."
-            if "${changed_file}" == "*.rb"; then
+            if ["${changed_file}" == "*.rb"]; then
               echo "RB file ${changed_file}."
               rubocop ${changed_file}
             else
