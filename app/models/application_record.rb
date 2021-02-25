@@ -5,6 +5,7 @@ class ApplicationRecord < ActiveRecord::Base
   # Another
 
   # dfgdfgdf
+  #""
 
   def Testll
     "RTYRTYrt"
