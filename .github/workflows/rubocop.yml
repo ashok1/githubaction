@@ -36,7 +36,8 @@ jobs:
             else
               echo "Non RB file ${changed_file}."
             fi
-            rubocop $files
-          echo $files
           done
+          echo $files
+          rubocop $files
+
  
