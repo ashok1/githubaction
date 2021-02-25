@@ -32,7 +32,7 @@ jobs:
             echo "Do something with this ${changed_file}."
             if [[ "${changed_file}" == *.rb ]]; then
               echo "RB file ${changed_file}."
-              $files+=" ${changed_file}"
+              files+=" ${changed_file}"
             else
               echo "Non RB file ${changed_file}."
             fi
