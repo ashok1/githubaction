@@ -6,6 +6,7 @@ class ApplicationRecord < ActiveRecord::Base
 
   # dfgdfgdf
   #""
+  #
 
   def Testll
     "RTYRTYrt"
