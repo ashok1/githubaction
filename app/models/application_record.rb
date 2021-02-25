@@ -8,5 +8,6 @@ class ApplicationRecord < ActiveRecord::Base
 
   def Testll
     "RTYRTYrt"
+    "###"
   end
 end
