@@ -20,13 +20,13 @@ jobs:
           ruby-version: 2.6.5
       - uses: actions/checkout@v2
       - uses: technote-space/get-diff-action@v4
-      with:
-        PATTERNS: |
-          +(app|__tests__)/**/*.rb
-          !src/exclude.ts
-        FILES: |
-          yarn.lock
-          .eslintrc
+        with:
+          PATTERNS: |
+            +(app|__tests__)/**/*.rb
+            !src/exclude.ts
+          FILES: |
+            yarn.lock
+            .eslintrc
       - name: Install Rubocop Gems
         if: env.GIT_DIFF
         run: |
